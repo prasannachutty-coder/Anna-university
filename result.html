@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Result</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; text-align: center; }
+        .details-box { background-color: #e9ecef; padding: 15px; border: 1px solid #ccc; display: inline-block; text-align: left; margin-bottom: 20px; border-radius: 5px; width: 50%; }
+        table { width: 60%; margin: 0 auto; border-collapse: collapse; }
+        th, td { border: 1px solid #333; padding: 10px; text-align: center; }
+        th { background-color: #007bff; color: white; }
+    </style>
+</head>
+<body>
+
+    <h2>Semester Results</h2>
+
+    <div class="details-box">
+        <p><strong>Name:</strong> <span id="displayName" style="color: blue;"></span></p>
+        <p><strong>Roll Number:</strong> <span id="displayRoll" style="color: blue;"></span></p>
+    </div>
+
+    <table>
+        <tr>
+            <th>Subject</th>
+            <th>Result</th>
+        </tr>
+        <tr>
+            <td>cs25c01-computer programming:c</td>
+            <td>fail</td>
+        </tr>
+        <tr>
+            <td>cs25c01-essentials of computing</td>
+            <td>fail</td>
+        </tr>
+        <tr>
+            <td>cy25c01-applied chemistry</td>
+            <td>Pass</td>
+        </tr>
+        <tr>
+            <td>uc25A02-physical education</td>
+            <td>Pass</td>
+        </tr>
+        <tr>
+            <td>EN25c01-english essential</td>
+            <td>fail</td>
+        </tr>
+        <tr>
+            <td>MA25c01-applied calculus</td>
+            <td>fail</td>
+        </tr>
+        <tr>
+            <td>uc25H01-heritage of tamil</td>
+            <td>fail</td>
+        </tr>
+    </table>
+
+    <script>
+        // URL la irundhu Data ah edukka JavaScript
+        const params = new URLSearchParams(window.location.search);
+        const rollNumber = params.get('rollno');
+        const studentName = params.get('name');
+
+        // Edutha data ah display pandradhu
+        if(rollNumber && studentName) {
+            document.getElementById('displayName').innerText = studentName;
+            document.getElementById('displayRoll').innerText = rollNumber;
+        } else {
+            document.getElementById('displayName').innerText = "Data Not Found";
+            document.getElementById('displayRoll').innerText = "Data Not Found";
+        }
+    </script>
+
+</body>
+</html>

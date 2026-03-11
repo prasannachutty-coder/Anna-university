@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login Portal</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); width: 300px; text-align: center; }
+        h2 { color: #333; margin-bottom: 20px; }
+        input { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; }
+        button { background-color: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; width: 100%; font-size: 16px; margin-top: 10px; }
+        button:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>Enter Details</h2>
+        <input type="text" id="rollBox" placeholder="Enter Roll Number" required>
+        <input type="text" id="nameBox" placeholder="Enter Name" required>
+        <button type="button" onclick="goToResult()">Submit</button>
+    </div>
+
+    <script>
+        function goToResult() {
+            var roll = document.getElementById('rollBox').value.trim();
+            var name = document.getElementById('nameBox').value.trim();
+            
+            if(roll !== "" && name !== "") {
+                // Ithu result.html ku data anuppum
+                window.location.href = "result.html?rollno=" + encodeURIComponent(roll) + "&name=" + encodeURIComponent(name);
+            } else {
+                alert("Roll Number and Name rendum enter pannunga!");
+            }
+        }
+    </script>
+
+</body>
+</html>
